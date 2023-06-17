@@ -38,10 +38,10 @@ where $u_1, u_0$ are the last two approximations of the solution $u$. However, s
 == Newton Interation
 
 Consider the non-linear operator $P u(x) = u''(x) - f(x, u(x), u'(x))$. We need to solve the equation $P u = 0$, with boundary conditions. This operator is Fréchet differentiable, with
-$ P(u + delta u) - P(u) = delta u'' - f_2(x, u, u') delta u - f_3(x, u, u') delta u' + O(||delta u||) $
+$ P(u + delta u) - P(u) = delta u'' - f_2(x, u, u') delta u - f_3(x, u, u') delta u' + o(||delta u||) $
 where $f_2, f_3$ are the partial derivatives of $f$. This enables us to use Newton's iteration method. At each stage, we solve the linear differential equation
 $ v'' - f_2(x,u,u') v - f_3(x,u,u') v' = P u, $
-and we set the next approximation $u$ to be $u + v$. We start the iteration by the quadratic function obtained from the boundary conditions, similar to the linear case.
+and we set the next approximation $u$ to be $u - v$. We start the iteration by the quadratic function obtained from the boundary conditions, similar to the linear case.
 
 However, the mesh of each summand is usually different due to the adaptive nature of the algorithm. We choose to keep a list of summands $v_k$ and the corresponding mesh ${x_i}_k$. Each time we use linear interpolation (which is fast and simple) to evaluate the sum.
 
